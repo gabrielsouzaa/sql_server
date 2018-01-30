@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  db:
+    container_name: gabs_mssql
+    
+    image: microsoft/mssql-server-linux
+
+    volumes:
+      - ./.db:/var/opt/mssql/
+      - /var/opt/mssql/data
+
+    ports:
+      - 1433:1433
+
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=Password123!  
